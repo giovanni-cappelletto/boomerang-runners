@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/home/home.jsx";
-import AllEvents from "./pages/all-events/all-events.jsx";
-import CreateEvent from "./pages/admin/create-event/create-event.jsx";
-import Settings from "./pages/admin/settings/settings.jsx";
+import Home from "./pages/home.jsx";
+import AllEvents from "./pages/all-events.jsx";
+import CreateEvent from "./pages/admin/create-event.jsx";
+import Settings from "./pages/admin/settings.jsx";
 import "./App.css";
 
 function App() {

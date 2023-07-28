@@ -4,7 +4,7 @@ import eventBg from "../assets/event__bg.png";
 import settingsIcon from "../assets/settings_icon.svg";
 import Title from "../components/Title";
 import Button from "../components/Button";
-import EventStyles from "../pages/all-events/all-events2.module.css";
+import EventStyles from "../styles/all-events2.module.css";
 
 const Event = ({ eventId, title, date, desc, link, createEventView }) => {
   const { user } = useAuth0();

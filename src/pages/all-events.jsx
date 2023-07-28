@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-import supabase from "../../Supabase.js";
-import Event from "../../components/Event";
-import LogoutButton from "../../components/LogoutButton";
-import Title from "../../components/Title";
-import Button from "../../components/Button";
-import allEventsStyles from "./all-events2.module.css";
-import blankPage from "./blankPage.module.css";
+import supabase from "../Supabase.js";
+import Event from "../components/Event.jsx";
+import LogoutButton from "../components/LogoutButton.jsx";
+import Title from "../components/Title.jsx";
+import Button from "../components/Button.jsx";
+import allEventsStyles from "../styles/all-events2.module.css";
+import blankPage from "../styles/blankPage.module.css";
 
 const Authenticated = ({ eventsArray }) => {
   return (

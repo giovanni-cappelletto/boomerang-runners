@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import supabase from "../../../Supabase.js";
-import Title from "../../../components/Title";
-import Button from "../../../components/Button";
-import editIcon from "../../../assets/edit_icon.svg";
-import settingsStyles from "./settings2.module.css";
+import supabase from "../../Supabase.js";
+import Title from "../../components/Title.jsx";
+import Button from "../../components/Button.jsx";
+import Form from "../../components/Input.jsx";
+import Input from "../../components/Input.jsx";
+import editIcon from "../../assets/edit_icon.svg";
+import settingsStyles from "../../styles/settings2.module.css";
+
+const ChangeSettings = () => {
+  return <dialog></dialog>;
+};
 
 const InfoColumn = ({ columnTitle, children }) => {
   return (
@@ -15,7 +21,27 @@ const InfoColumn = ({ columnTitle, children }) => {
   );
 };
 
-const Property = ({ property, value, icon }) => {
+const Property = ({
+  property,
+  value,
+  icon,
+  changeSettings,
+  setChangeSettings,
+}) => {
+  const handleClick = (e) => {
+    const element = e.target.previousSibling;
+    const value = element.textContent.split(" ").slice(2).join(" ");
+
+    setChangeSettings(!changeSettings);
+    // if (property === "Descrizione") {
+    //   return;
+    // }
+
+    // if (property === "Data") {
+    //   return <Input type="date" value={value} />;
+    // }
+  };
+
   return (
     <div className={settingsStyles.info__container}>
       <p className={settingsStyles.info__property}>
@@ -26,6 +52,7 @@ const Property = ({ property, value, icon }) => {
           src={editIcon}
           alt="Edit Icon"
           className={settingsStyles.edit_btn}
+          onClick={handleClick}
         />
       )}
     </div>
@@ -34,6 +61,7 @@ const Property = ({ property, value, icon }) => {
 
 const Settings = () => {
   const [eventInfo, setEventInfo] = useState({});
+  const [changeSettings, setChangeSettings] = useState(false);
 
   const eventId = Number(window.location.search.slice(7));
 
@@ -65,13 +93,33 @@ const Settings = () => {
 
         <div className={settingsStyles.info}>
           <InfoColumn columnTitle="Modifica">
-            <Property property="Nome" value={eventInfo[0].nome} icon={true} />
-            <Property property="Data" value={eventInfo[0].data} icon={true} />
-            <Property property="Link" value={eventInfo[0].link} icon={true} />
+            <Property
+              property="Nome"
+              value={eventInfo[0].nome}
+              icon={true}
+              changeSettings={changeSettings}
+              setChangeSettings={setChangeSettings}
+            />
+            <Property
+              property="Data"
+              value={eventInfo[0].data}
+              icon={true}
+              changeSettings={changeSettings}
+              setChangeSettings={setChangeSettings}
+            />
+            <Property
+              property="Link"
+              value={eventInfo[0].link}
+              icon={true}
+              changeSettings={changeSettings}
+              setChangeSettings={setChangeSettings}
+            />
             <Property
               property="Descrizione"
               value={eventInfo[0].descrizione}
               icon={true}
+              changeSettings={changeSettings}
+              setChangeSettings={setChangeSettings}
             />
           </InfoColumn>
 
@@ -92,6 +140,8 @@ const Settings = () => {
 
           <Button className="fixed left dark" text="Salva le modifiche" />
         </div>
+
+        {changeSettings && <ChangeSettings />}
       </main>
     )
   );

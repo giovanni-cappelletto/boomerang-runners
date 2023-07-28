@@ -8,7 +8,7 @@ const LogoutButton = () => {
       className="btn dark fixed left"
       onClick={() =>
         logout({
-          logoutParams: { returnTo: "https://boomerang-runners.vercel.app/" },
+          logoutParams: { returnTo: "http://localhost:5173/" },
         })
       }
     >

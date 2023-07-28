@@ -1,6 +1,6 @@
-import Title from "../../components/Title";
-import LoginButton from "../../components/LoginButton";
-import homeStyles from "./home2.module.css";
+import Title from "../components/Title";
+import LoginButton from "../components/LoginButton";
+import homeStyles from "../styles/home2.module.css";
 
 const Home = () => {
   return (

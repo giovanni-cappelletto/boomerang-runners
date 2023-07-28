@@ -1,7 +1,11 @@
+# .tmp
+
+---> Creating structure and styles for dialog in `settings.jsx`
+
 # V1 - To Do
 
+- Fixing event cards
 - Using `.env` variables
-- Moving all styles inside `styles`
 - Create one component for `BlankPage`
 - Check CSS (maybe with a CSSLinter?)
 - Testing on vercel (hoping!)
