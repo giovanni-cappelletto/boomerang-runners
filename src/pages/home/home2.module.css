@@ -1,46 +1,46 @@
 :root {
-    --bg-clr: hsl(0, 0%, 95%);
-    --main-clr: hsl(216, 18%, 16%);
-    --accent-clr: hsl(26, 100%, 49%);
+  --bg-clr: hsl(0, 0%, 95%);
+  --main-clr: hsl(216, 18%, 16%);
+  --accent-clr: hsl(26, 100%, 49%);
 }
 
 body {
-    display: grid; 
-    place-items: center;
+  display: grid;
+  place-items: center;
 }
 
 .main {
-    text-align: center;
-    padding: 30px;
-    max-width: 800px;
+  text-align: center;
+  padding: 30px;
+  max-width: 800px;
 }
 
 .main__title,
 .main__subtitle,
 .main__desc {
-    color: var(--main-clr);
+  color: var(--main-clr);
 }
 
 .main__title {
-    display: flex; 
-    gap: 0;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 
-    line-height: 1.1;
-    font-size: clamp(2rem, 5vw, 3rem);
-    letter-spacing: .5px;
+  line-height: 1.1;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 0.5px;
 }
 
 .main__content {
-    margin-block: 30px;
+  margin-block: 30px;
 }
 
 .main__subtitle {
-    margin-block-end: 10px;
+  margin-block-end: 10px;
 }
 
 .main__desc {
-    font-style: italic;
+  font-style: italic;
 }
