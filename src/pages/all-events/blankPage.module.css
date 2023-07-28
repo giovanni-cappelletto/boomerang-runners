@@ -1,0 +1,26 @@
+:root {
+    --bg-one-clr: hsl(0, 0%, 95%);
+    --bg-two-clr: hsl(217, 10%, 25%);
+    --dark-shadow: hsl(218, 20%, 16%);
+    --accent-one-clr: hsl(26, 100%, 49%);
+    --accent-two-clr: hsl(26, 78%, 81%);
+}
+
+.main {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 50px;
+}
+
+.main__title {
+    text-align: center;
+    color: var(--bg-two-clr);
+    margin-block-end: 15px;
+    font-size: clamp(2rem, 5vw, 3rem);
+    isolation: isolate;
+}
+
+.btn {
+    margin-block-start: 25px;
+}

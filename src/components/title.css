@@ -1,0 +1,18 @@
+.word {
+    position: relative;
+    margin-inline: 0;
+    padding-inline: 5px;
+}
+
+.word::after {
+    --box-shadow-clr: hsl(26, 97%, 73%);
+
+    content: "";
+    background-color: var(--box-shadow-clr);
+    z-index: -1;
+    position: absolute;
+    right: 0;
+    top: 65%;
+    width: 100%;
+    height: 15px;
+}
