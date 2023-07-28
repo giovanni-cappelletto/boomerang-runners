@@ -1,15 +1,5 @@
 {
   "redirects": [
-    { "source": "/", "destination": "/src/pages/home.jsx", "permanent": true },
-    {
-      "source": "/home",
-      "destination": "/src/pages/home.jsx",
-      "permanent": true
-    },
-    {
-      "source": "/all-events",
-      "destination": "/src/pages/all-events/all-events.jsx",
-      "permanent": false
-    }
+    { "source": "/(.*)", "destination": "/src/App.jsx", "permanent": true }
   ]
 }
