@@ -1,5 +1,6 @@
 # V1 - To Do
 
+- Using `.env` variables
 - Moving all styles inside `styles`
 - Create one component for `BlankPage`
 - Check CSS (maybe with a CSSLinter?)
@@ -15,3 +16,9 @@
 - Add/change event's informations through the import of a .md file
 - Adding Enter during add/change description
 - Limit on subscription + countdown timer
+
+# Changing Auth0 Links
+
+- `redirect_uri` in main.jsx
+- `returnTo` in LogoutButton.jsx
+- In Auth0 site

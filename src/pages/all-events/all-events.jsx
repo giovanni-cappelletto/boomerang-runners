@@ -57,7 +57,7 @@ const BlankPage = () => {
 
 const AllEvents = () => {
   const [events, setEvents] = useState([]);
-  const { user, isAuthenticated } = useAuth0();
+  const { isAuthenticated } = useAuth0();
 
   const fetchData = async () => {
     const { data } = await supabase.from("evento").select("*");
