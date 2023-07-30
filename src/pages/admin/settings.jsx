@@ -145,11 +145,7 @@ const Settings = () => {
   };
 
   const deleteEvent = async () => {
-    const { error } = await supabase
-      .from("evento")
-      .delete()
-      .eq("id", eventId)
-      .filter();
+    const { error } = await supabase.from("evento").delete().eq("id", eventId);
 
     if (error) {
       toast.error("Impossibile eliminare l'evento");

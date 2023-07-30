@@ -1,6 +1,6 @@
-# .tmp
+# .tmp / issues
 
-- How to update a card (Hint: Select the part of state that has changed)
+- Deleting events not working
 
 # V1 - To Do
 
