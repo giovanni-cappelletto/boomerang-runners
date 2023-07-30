@@ -26,6 +26,16 @@ body {
   padding-block-end: 50px;
 }
 
+.main.active::before {
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  background: var(--dark-shadow);
+  opacity: 0.7;
+  position: absolute;
+  z-index: 1;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -174,6 +184,63 @@ body {
 .btn:focus-visible {
   --offset: 2px;
   outline: none;
+}
+
+/* Settings Dialog */
+.settings_panel {
+  --offset: 8px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  z-index: 2;
+  box-shadow: var(--offset) var(--offset) var(--bg-two-clr);
+}
+
+.settings_panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block-end: 30px;
+}
+
+.settings_panel__title {
+  color: var(--bg-two-clr);
+}
+
+.settings_panel__close_icon {
+  --size: 30px;
+
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--size);
+  height: var(--size);
+}
+
+.settings_panel__close_icon::before,
+.settings_panel__close_icon::after {
+  content: "";
+  background-color: var(--bg-two-clr);
+  width: 100%;
+  height: 3px;
+  position: absolute;
+}
+
+.settings_panel__close_icon::before {
+  transform: rotate(45deg);
+}
+
+.settings_panel__close_icon::after {
+  transform: rotate(-45deg);
+}
+
+.save_btn {
+  margin-block-start: 20px;
 }
 
 @media screen and (max-width: 400px) {

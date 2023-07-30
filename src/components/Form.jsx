@@ -1,11 +1,11 @@
-import Input from "../../components/Input";
-import Button from "../../components/Button";
+import Input from "./Input";
+import Button from "./Button";
 import createEventStyles from "../styles/create-event2.module.css";
 
-const Form = ({ fetchData, handleChange }) => {
+const Form = ({ fetchData, handleChange, renderCreateBtn }) => {
   return (
     <form className={createEventStyles.create__form}>
-      <Input placeholder="Nome" property="title" handleChange={handleChange} />
+      <Input placeholder="Nome" property="nome" handleChange={handleChange} />
       <Input
         type="date"
         placeholder="Data"
@@ -23,14 +23,17 @@ const Form = ({ fetchData, handleChange }) => {
         id="descrizione"
         onChange={handleChange}
       ></textarea>
-      <Button
-        onClick={(e) => {
-          e.preventDefault();
-          fetchData();
-        }}
-        className={`${createEventStyles.submit_btn} light`}
-        text="Crea"
-      />
+
+      {renderCreateBtn && (
+        <Button
+          onClick={(e) => {
+            e.preventDefault();
+            fetchData();
+          }}
+          className={`${createEventStyles.submit_btn} light`}
+          text="Crea"
+        />
+      )}
     </form>
   );
 };

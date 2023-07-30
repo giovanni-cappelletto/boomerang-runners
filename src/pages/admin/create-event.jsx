@@ -40,8 +40,9 @@ const CreateEvent = () => {
 
     if (error) {
       toast.error("Qualcosa è andato storto!");
+      console.error(error);
     } else {
-      toast.success("Evento creato con successo");
+      toast.success("Evento creato con successo!");
     }
   };
 
@@ -63,6 +64,7 @@ const CreateEvent = () => {
           fetchData={fetchData}
           handleChange={handleChange}
           eventInfos={eventInfos}
+          renderCreateBtn={true}
         />
       </Section>
 

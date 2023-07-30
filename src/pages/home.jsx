@@ -11,7 +11,7 @@ const Home = () => {
 
       <div className={homeStyles.main__content}>
         <p className={homeStyles.main__subtitle}>
-          Vieni a camminare con noi ogni settimana, divertendoti e passandouna
+          Vieni a camminare con noi ogni settimana, divertendoti e passando una
           parte della giornata in serenità!
         </p>
         <p className={homeStyles.main__desc}>
