@@ -1,8 +1,14 @@
 import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
-  "https://vgzuppijoyeriwmvvctm.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZnenVwcGlqb3llcml3bXZ2Y3RtIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ3Nzc2NzAsImV4cCI6MjAwMDM1MzY3MH0.pIGpT-1otC_7ehJTtCFuRHUNBDeagxuZTQEHsb5DO3I"
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_ANON_KEY
 );
 
+const fetchData = async (table, column, value, setState) => {
+  const { data } = await supabase.from(table).select("*").eq(column, value);
+  setState(data);
+};
+
 export default supabase;
+export { fetchData };

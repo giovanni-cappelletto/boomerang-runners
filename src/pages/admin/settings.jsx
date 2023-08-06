@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import supabase from "../../Supabase.js";
+import supabase, { fetchData } from "../../Supabase.js";
 import toast, { Toaster } from "react-hot-toast";
 import Title from "../../components/Title.jsx";
 import Button from "../../components/Button.jsx";
 import Form from "../../components/Form.jsx";
 import editIcon from "../../assets/edit_icon.svg";
-import settingsStyles from "../../styles/settings2.module.css";
+import settingsStyles from "../../styles/settings.module.css";
 
 const ChangeSettings = ({
   setChangeSettings,
@@ -108,11 +108,6 @@ const Settings = () => {
 
   const eventId = Number(window.location.search.slice(7));
 
-  const fetchData = async (table, column, value, setState) => {
-    const { data } = await supabase.from(table).select("*").eq(column, value);
-    setState(data);
-  };
-
   useEffect(() => {
     fetchData("evento", "id", eventId, setEventInfos);
     fetchData("partecipante", "idevento", eventId, setAttendees);
@@ -131,7 +126,7 @@ const Settings = () => {
   const viewAttendees = async () => {
     const { data } = await supabase
       .from("partecipante")
-      .select("nome, cognome, numerobiglietti")
+      .select("nome, cognome, numerobiglietti, email")
       .eq("idevento", eventId)
       .csv();
 

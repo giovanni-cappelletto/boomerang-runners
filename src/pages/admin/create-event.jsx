@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 import supabase from "../../Supabase.js";
 import toast, { Toaster } from "react-hot-toast";
 import Button from "../../components/Button";
 import Form from "../../components/Form";
 import Event from "../../components/Event";
-import createEventStyles from "../../styles/create-event2.module.css";
+import createEventStyles from "../../styles/create-event.module.css";
+import BlankPage from "../../components/BlankPage.jsx";
 
 const Section = ({
   className,
@@ -27,6 +29,8 @@ const Section = ({
 };
 
 const CreateEvent = () => {
+  const { user } = useAuth0();
+
   const [eventInfos, setEventInfos] = useState({
     nome: "Evento 1",
     data: "2023-01-01",
@@ -35,7 +39,7 @@ const CreateEvent = () => {
     link: "https://www.google.it",
   });
 
-  const fetchData = async () => {
+  const pushData = async () => {
     const { error } = await supabase.from("evento").insert(eventInfos);
 
     if (error) {
@@ -53,6 +57,8 @@ const CreateEvent = () => {
     setEventInfos({ ...eventInfos, [property]: value });
   };
 
+  if (!user) return <BlankPage />;
+
   return (
     <main className={createEventStyles.main}>
       <Section
@@ -61,7 +67,7 @@ const CreateEvent = () => {
         sectionTitleClassName={createEventStyles.create__title}
       >
         <Form
-          fetchData={fetchData}
+          fetchData={pushData}
           handleChange={handleChange}
           eventInfos={eventInfos}
           renderCreateBtn={true}

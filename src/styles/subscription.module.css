@@ -1,0 +1,50 @@
+:root {
+  --accent-two-clr: hsl(26, 78%, 81%);
+  --main-clr: hsl(216, 18%, 16%);
+}
+
+.main {
+  display: flex;
+  align-items: start;
+  gap: 3rem;
+}
+
+.main__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-block: 7px;
+}
+
+.main__paragraph {
+  margin-block-end: 25px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.send_btn {
+  margin-block-start: 20px;
+}
+
+.event__box {
+  --offset: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  margin-block-start: 50px;
+  width: 250px;
+  background-color: var(--accent-two-clr);
+  border: 1px solid var(--main-clr);
+  box-shadow: var(--offset) var(--offset) var(--main-clr);
+}
+
+.tickets_number {
+  font-weight: bold;
+  font-size: 2.7rem;
+}

@@ -1,6 +1,6 @@
 import Input from "./Input";
 import Button from "./Button";
-import createEventStyles from "../styles/create-event2.module.css";
+import createEventStyles from "../styles/create-event.module.css";
 
 const Form = ({ fetchData, handleChange, renderCreateBtn }) => {
   return (

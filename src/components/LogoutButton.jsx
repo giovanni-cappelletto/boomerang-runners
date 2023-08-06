@@ -8,7 +8,7 @@ const LogoutButton = () => {
       className="btn dark fixed left"
       onClick={() =>
         logout({
-          logoutParams: { returnTo: "http://localhost:5173/" },
+          logoutParams: { returnTo: import.meta.env.VITE_BASE_URL },
         })
       }
     >

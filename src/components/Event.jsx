@@ -4,7 +4,7 @@ import eventBg from "../assets/event__bg.png";
 import settingsIcon from "../assets/settings_icon.svg";
 import Title from "../components/Title";
 import Button from "../components/Button";
-import EventStyles from "../styles/all-events2.module.css";
+import EventStyles from "../styles/all-events.module.css";
 
 const Event = ({ eventId, title, date, desc, link, createEventView }) => {
   const { user } = useAuth0();
@@ -26,7 +26,7 @@ const Event = ({ eventId, title, date, desc, link, createEventView }) => {
         <p className={EventStyles.event__desc}>{desc}</p>
 
         <div className={EventStyles.btn_container}>
-          {user.sub === "auth0|64b82dbfb6c808c6f9cc6f70" && !createEventView ? (
+          {user.sub === import.meta.env.VITE_ADMIN_SUB && !createEventView ? (
             <Link to={`/settings?event=${eventId}`}>
               <Button className="light settings-btn">
                 <img src={settingsIcon} alt="Settings button" />
@@ -34,7 +34,9 @@ const Event = ({ eventId, title, date, desc, link, createEventView }) => {
             </Link>
           ) : (
             <>
-              <Button className="light" text="Iscriviti" />
+              <Link to={`/subscription?event=${eventId}`}>
+                <Button className="light" text="Iscriviti" />
+              </Link>
               <a
                 href={link}
                 target="_blank"

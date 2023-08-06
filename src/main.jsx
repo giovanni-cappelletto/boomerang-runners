@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       domain="dev-w36lj5lfag1zyy2o.us.auth0.com"
       clientId="A7qW7XPtCojDpjHODvNg0PB3TUmNp1Ob"
       authorizationParams={{
-        redirect_uri: "http://localhost:5173/all-events",
+        redirect_uri: import.meta.env.VITE_REDIRECT_URI,
       }}
     >
       <App />

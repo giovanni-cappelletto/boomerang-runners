@@ -1,4 +1,4 @@
-import createEventStyles from "../styles/create-event2.module.css";
+import createEventStyles from "../styles/create-event.module.css";
 
 const Input = ({ type = "text", placeholder, property, handleChange }) => {
   return (
