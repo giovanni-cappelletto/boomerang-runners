@@ -5,8 +5,9 @@
 
 .main {
   display: flex;
-  align-items: start;
-  gap: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px;
 }
 
 .main__title {
@@ -35,7 +36,6 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 10px;
   padding: 20px;
   margin-block-start: 50px;
   width: 250px;
@@ -47,4 +47,23 @@
 .tickets_number {
   font-weight: bold;
   font-size: 2.7rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.animation {
+  padding-inline-start: 100px;
+}
+
+@media screen and (max-width: 900px) {
+  main {
+    flex-direction: column;
+  }
+
+  .animation {
+    padding-inline-start: 0;
+    padding-block-start: 100px;
+  }
 }

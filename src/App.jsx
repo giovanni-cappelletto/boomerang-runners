@@ -3,7 +3,7 @@ import Home from "./pages/home.jsx";
 import AllEvents from "./pages/all-events.jsx";
 import CreateEvent from "./pages/admin/create-event.jsx";
 import Settings from "./pages/admin/settings.jsx";
-import Subscription from "./pages/subscription.jsx";
+import Subscription from "./pages/subscription/subscription.jsx";
 import "./App.css";
 
 function App() {

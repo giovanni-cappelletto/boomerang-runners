@@ -5,6 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import Title from "../../components/Title.jsx";
 import Button from "../../components/Button.jsx";
 import Form from "../../components/Form.jsx";
+import calculateTotalAttendees from "../../utils/calculateTotalAttendees.jsx";
 import editIcon from "../../assets/edit_icon.svg";
 import settingsStyles from "../../styles/settings.module.css";
 
@@ -113,16 +114,6 @@ const Settings = () => {
     fetchData("partecipante", "idevento", eventId, setAttendees);
   }, []);
 
-  const totalAttendees = () => {
-    let tickets = 0;
-
-    for (const { numerobiglietti } of attendees) {
-      tickets += numerobiglietti;
-    }
-
-    return tickets;
-  };
-
   const viewAttendees = async () => {
     const { data } = await supabase
       .from("partecipante")
@@ -200,7 +191,7 @@ const Settings = () => {
           <InfoColumn columnTitle="Partecipanti">
             <Property
               property="Numero biglietti"
-              value={attendees && totalAttendees()}
+              value={attendees && calculateTotalAttendees(attendees)}
               icon={false}
             />
             <Button

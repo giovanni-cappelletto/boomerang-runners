@@ -1,58 +1,20 @@
-import { useState, useEffect } from "react";
+import supabase from "../../Supabase.js";
 import { Link } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
 import { Player } from "@lottiefiles/react-lottie-player";
-import supabase, { fetchData } from "../Supabase.js";
-import SubscriptionAnimation from "../assets/subscription_animation.json";
 import toast, { Toaster } from "react-hot-toast";
-import Title from "../components/Title";
-import Input from "../components/Input";
-import Button from "../components/Button";
-import subscriptionStyles from "../styles/subscription.module.css";
+import Title from "../../components/Title.jsx";
+import Input from "../../components/Input.jsx";
+import Button from "../../components/Button.jsx";
+import TotalAttendees from "../../components/TotalAttendees.jsx";
+import SubscriptionAnimation from "../../assets/subscription_animation.json";
+import subscriptionStyles from "../../styles/subscription.module.css";
 
-const TotalAttendees = ({ attendees }) => {
-  let tickets = 0;
-
-  if (attendees.length === undefined) {
-    tickets = 0;
-  } else if (attendees.length === 1) {
-    tickets = attendees[0].numerobiglietti;
-  } else {
-    for (const { numerobiglietti } of attendees) {
-      tickets += numerobiglietti;
-    }
-  }
-
-  return (
-    <div className={subscriptionStyles.event__box}>
-      {tickets === 1 ? "Partecipa" : "Partecipano"}
-      <br />
-      <p className={subscriptionStyles.tickets_number}>{tickets}</p>
-      {tickets === 1 ? "Persona" : "Persone"}
-      <br />
-    </div>
-  );
-};
-
-const Subscription = () => {
-  const { user } = useAuth0();
-  const eventId = Number(window.location.search.slice(7));
-
-  const [attendeeInfos, setAttendeeInfos] = useState({
-    nome: "",
-    cognome: "",
-    idevento: eventId,
-    email: user.email,
-    numerobiglietti: 1,
-  });
-  const [attendees, setAttendees] = useState({});
-  const [eventInfos, setEventInfos] = useState({});
-
-  useEffect(() => {
-    fetchData("evento", "id", eventId, setEventInfos);
-    fetchData("partecipante", "idevento", eventId, setAttendees);
-  }, []);
-
+const SubscriptionPage = ({
+  attendees,
+  attendeeInfos,
+  setAttendeeInfos,
+  eventInfos,
+}) => {
   const formatFields = (field) => {
     const formattedField = field
       .trim()
@@ -145,7 +107,7 @@ const Subscription = () => {
         autoplay
         loop
         src={SubscriptionAnimation}
-        style={{ height: "500px", width: "500px" }}
+        className={subscriptionStyles.animation}
       ></Player>
 
       <Link to="/all-events">
@@ -157,4 +119,4 @@ const Subscription = () => {
   );
 };
 
-export default Subscription;
+export default SubscriptionPage;

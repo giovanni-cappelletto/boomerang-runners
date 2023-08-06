@@ -1,11 +1,10 @@
 # .tmp / issues
 
+- Change folder structure
 - Modify || Delete participation
 
 # V1 - To Do
 
-- Responsive for subscription
-- RegExp in subscription
 - 404 Page
 - Fixing description length in settings
 - Fixing event cards size
