@@ -40,7 +40,15 @@ const Subscription = () => {
     checkParticipation();
   }
 
-  return Object.values(attendeeAlreadySigned).length ? (
+  let deltaTime = null;
+
+  if (eventInfos.limiteiscrizione) {
+    deltaTime =
+      Date.parse(new Date(`${eventInfos.limiteiscrizione}, 12:00:00`)) -
+      Date.parse(new Date());
+  }
+
+  return deltaTime > 0 && Object.values(attendeeAlreadySigned).length ? (
     <Subscribed
       eventInfos={eventInfos}
       attendee={attendeeAlreadySigned}

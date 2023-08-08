@@ -18,6 +18,10 @@ const Event = ({
 }) => {
   const { user } = useAuth0();
 
+  const deltaTime =
+    Date.parse(new Date(`${limitSubscriptionDate}, 12:00:00`)) -
+    Date.parse(new Date());
+
   return (
     <div className={EventStyles.event}>
       <img
@@ -36,9 +40,9 @@ const Event = ({
           <Countdown date={limitSubscriptionDate} />
         </div>
         <p className={EventStyles.event__desc}>
-          {desc.split("").map((letter) => {
+          {desc.split("").map((letter, index) => {
             if (letter === "\n") {
-              return <br />;
+              return <br key={`${eventId}-${index}`} />;
             }
 
             return letter;
@@ -54,9 +58,11 @@ const Event = ({
             </Link>
           ) : (
             <>
-              <Link to={`/subscription?event=${eventId}`}>
-                <Button className="light" text="Iscriviti" />
-              </Link>
+              {deltaTime > 0 && (
+                <Link to={`/subscription?event=${eventId}`}>
+                  <Button className="light" text="Iscriviti" />
+                </Link>
+              )}
               <a
                 href={link}
                 target="_blank"

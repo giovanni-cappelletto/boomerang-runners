@@ -14,19 +14,23 @@ const Authenticated = ({ user, eventsArray }) => {
       <h1 className={allEventsStyles.main__title}>Tutti gli eventi</h1>
 
       <div className={allEventsStyles.events_container}>
-        {eventsArray.map((event) => {
-          return (
-            <Event
-              key={event.id}
-              eventId={event.id}
-              title={event.nome}
-              limitSubscriptionDate={event.limiteiscrizione}
-              eventDate={event.data}
-              desc={event.descrizione}
-              link={event.link}
-            />
-          );
-        })}
+        {eventsArray.length === 0 ? (
+          <p>Non ci sono eventi!</p>
+        ) : (
+          eventsArray.map((event) => {
+            return (
+              <Event
+                key={event.id}
+                eventId={event.id}
+                title={event.nome}
+                limitSubscriptionDate={event.limiteiscrizione}
+                eventDate={event.data}
+                desc={event.descrizione}
+                link={event.link}
+              />
+            );
+          })
+        )}
       </div>
 
       <LogoutButton />

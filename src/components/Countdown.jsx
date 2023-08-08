@@ -13,12 +13,16 @@ const Countdown = ({ date }) => {
   useEffect(() => {
     if (date) {
       intervalRef.current = setInterval(getDate, 1000);
+
+      if (countdownDate - Date.parse(new Date()) <= 0) {
+        clearInterval(intervalRef.current);
+      }
     }
   });
 
   let countdownDate = null;
 
-  if (countdownDate !== Date.parse(new Date(`${date} 12:00:00`))) {
+  if (countdownDate !== Date.parse(new Date(`${date}`))) {
     clearInterval(intervalRef.current);
   }
 

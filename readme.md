@@ -1,7 +1,5 @@
 # .tmp / issues
 
-- Ending in 00:00:00 + block subscription and editing infos
-
 # V1 - To Do
 
 - Refactoring: creating two Form components
