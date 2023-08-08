@@ -173,6 +173,15 @@ const Settings = () => {
               setChangeSettings={setChangeSettings}
             />
             <Property
+              property="Limite iscrizione"
+              value={
+                eventInfos?.limiteiscrizione || eventInfos[0].limiteiscrizione
+              }
+              icon={true}
+              changeSettings={changeSettings}
+              setChangeSettings={setChangeSettings}
+            />
+            <Property
               property="Link"
               value={eventInfos?.link || eventInfos[0].link}
               icon={true}

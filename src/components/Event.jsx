@@ -4,9 +4,18 @@ import eventBg from "../assets/event__bg.png";
 import settingsIcon from "../assets/settings_icon.svg";
 import Title from "../components/Title";
 import Button from "../components/Button";
+import Countdown from "../components/Countdown.jsx";
 import EventStyles from "../styles/all-events.module.css";
 
-const Event = ({ eventId, title, date, desc, link, createEventView }) => {
+const Event = ({
+  eventId,
+  title,
+  limitSubscriptionDate,
+  eventDate,
+  desc,
+  link,
+  createEventView,
+}) => {
   const { user } = useAuth0();
 
   return (
@@ -22,7 +31,10 @@ const Event = ({ eventId, title, date, desc, link, createEventView }) => {
         <h1 className={EventStyles.event__title}>
           <Title text={title} />
         </h1>
-        <span className={EventStyles.event__date}>{date}</span>
+        <div className={EventStyles.event__infos_wrapper}>
+          <span className={EventStyles.event__date}>{eventDate}</span>
+          <Countdown date={limitSubscriptionDate} />
+        </div>
         <p className={EventStyles.event__desc}>{desc}</p>
 
         <div className={EventStyles.btn_container}>

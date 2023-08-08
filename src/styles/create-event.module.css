@@ -61,6 +61,11 @@ section {
   gap: 1rem;
 }
 
+.input_wrapper {
+  position: relative;
+  margin-block: 15px;
+}
+
 .input {
   font-family: inherit;
   width: 400px;
@@ -70,12 +75,15 @@ section {
   background-color: var(--accent-two-clr);
 }
 
-.input::placeholder {
-  color: var(--bg-two-clr);
-}
-
 .input:focus-visible {
   outline: 1px solid var(--bg-two-clr);
+}
+
+.label {
+  user-select: none;
+  position: absolute;
+  left: 0;
+  top: -25px;
 }
 
 .desc_field {

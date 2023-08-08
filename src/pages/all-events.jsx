@@ -20,7 +20,8 @@ const Authenticated = ({ user, eventsArray }) => {
               key={event.id}
               eventId={event.id}
               title={event.nome}
-              date={event.data}
+              limitSubscriptionDate={event.limiteiscrizione}
+              eventDate={event.data}
               desc={event.descrizione}
               link={event.link}
             />

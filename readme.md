@@ -1,6 +1,5 @@
 # .tmp / issues
 
-- Change folder structure
 - Modify || Delete participation
 
 # V1 - To Do
@@ -8,21 +7,18 @@
 - 404 Page
 - Fixing description length in settings
 - Fixing event cards size
-- Create one component for `BlankPage`
 - Check CSS (maybe with a CSSLinter?)
 - Check the link's format in Create Event section
-- Change "floating-btn" color depending on the height
 - Adding comments
 
 # V2 - To Do
 
 - Adding Enter during add/change description
-- Limit on subscription + countdown timer
+- countdownDate calculator based on event date
 
 # Changing Auth0 Links
 
-- `redirect_uri` in main.jsx
-- `returnTo` in LogoutButton.jsx
+- Inside `.env`
 - In Auth0 site
 
 - At the end, change to production in Auth0

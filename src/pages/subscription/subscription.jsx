@@ -1,18 +1,8 @@
 import { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { fetchData } from "../../Supabase.js";
-// import IsParticipating from "./IsParticipating.jsx";
 import SubscriptionPage from "./SubscriptionPage.jsx";
-
-const modifyParticipation = () => {
-  return;
-};
-
-// ===== Stupid Code =====
-const IsParticipating = () => {
-  return <h1>Hey</h1>;
-};
-// =======================
+import Subscribed from "./Subscribed.jsx";
 
 const Subscription = () => {
   const { user } = useAuth0();
@@ -34,19 +24,23 @@ const Subscription = () => {
     fetchData("partecipante", "idevento", eventId, setAttendees);
   }, []);
 
-  // const checkParticipation = () => {
-  //   if (!attendees) return;
+  const checkParticipation = () => {
+    let userIsParticipating = false;
 
-  //   for (const { email } of attendees) {
-  //     if (email !== user.email) return;
+    for (const { email } of attendees) {
+      userIsParticipating = email === user.email ? true : false;
+    }
 
-  //     setIsParticipating(true);
-  //   }
-  // };
-  // checkParticipation();
+    // Avoiding too many re-renders
+    if (userIsParticipating === isParticipating) return;
+
+    setIsParticipating(userIsParticipating);
+  };
+
+  if (attendees.length) checkParticipation();
 
   return isParticipating ? (
-    <IsParticipating />
+    <Subscribed />
   ) : (
     <SubscriptionPage
       attendees={attendees}

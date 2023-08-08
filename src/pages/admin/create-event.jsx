@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import supabase from "../../Supabase.js";
@@ -6,8 +6,8 @@ import toast, { Toaster } from "react-hot-toast";
 import Button from "../../components/Button";
 import Form from "../../components/Form";
 import Event from "../../components/Event";
-import createEventStyles from "../../styles/create-event.module.css";
 import BlankPage from "../../components/BlankPage.jsx";
+import createEventStyles from "../../styles/create-event.module.css";
 
 const Section = ({
   className,
@@ -32,12 +32,29 @@ const CreateEvent = () => {
   const { user } = useAuth0();
 
   const [eventInfos, setEventInfos] = useState({
-    nome: "Evento 1",
+    nome: "Evento",
     data: "2023-01-01",
+    limiteiscrizione: "",
     descrizione:
       "Lorem ipsum dolor sit amet... \n Lorem ipsum dolor sit amet... \n Lorem ipsum dolor sit amet... \n Lorem ipsum dolor sit amet... \n Lorem ipsum dolor sit amet...",
-    link: "https://www.google.it",
+    link: "https://boomerang-runners.vercel.app/",
   });
+  const [buttonTheme, setButtonTheme] = useState("dark");
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  });
+
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+
+    if (position > 75) {
+      setButtonTheme("light");
+      return;
+    }
+
+    setButtonTheme("dark");
+  };
 
   const pushData = async () => {
     const { error } = await supabase.from("evento").insert(eventInfos);
@@ -53,6 +70,10 @@ const CreateEvent = () => {
   const handleChange = (e) => {
     const property = e.target.id;
     const value = e.target.value;
+
+    if (property === "limiteiscrizione") {
+      console.log(e.target);
+    }
 
     setEventInfos({ ...eventInfos, [property]: value });
   };
@@ -81,7 +102,8 @@ const CreateEvent = () => {
       >
         <Event
           title={eventInfos.nome}
-          date={eventInfos.data}
+          limitSubscriptionDate={eventInfos.limiteiscrizione}
+          eventDate={eventInfos.data}
           desc={eventInfos.descrizione}
           link={eventInfos.link}
           createEventView={true}
@@ -89,7 +111,10 @@ const CreateEvent = () => {
       </Section>
 
       <Link to="/all-events">
-        <Button className="fixed left dark" text="Tutti gli eventi" />
+        <Button
+          className={`fixed left ${buttonTheme}`}
+          text="Tutti gli eventi"
+        />
       </Link>
 
       <Toaster />

@@ -13,16 +13,26 @@ const Form = ({ fetchData, handleChange, renderCreateBtn }) => {
         handleChange={handleChange}
       />
       <Input
+        type="date"
+        placeholder="Limite iscrizione"
+        property="limiteiscrizione"
+        handleChange={handleChange}
+      />
+      <Input
         placeholder="Link per maggiori info"
         property="link"
         handleChange={handleChange}
       />
-      <textarea
-        placeholder="Descrizione"
-        className={`${createEventStyles.input} ${createEventStyles.desc_field}`}
-        id="descrizione"
-        onChange={handleChange}
-      ></textarea>
+      <div className={createEventStyles.input_wrapper}>
+        <label htmlFor="descrizione" className={createEventStyles.label}>
+          Descrizione
+        </label>
+        <textarea
+          className={`${createEventStyles.input} ${createEventStyles.desc_field}`}
+          id="descrizione"
+          onChange={handleChange}
+        ></textarea>
+      </div>
 
       {renderCreateBtn && (
         <Button

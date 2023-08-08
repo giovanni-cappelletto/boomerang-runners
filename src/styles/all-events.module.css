@@ -83,6 +83,7 @@
   color: var(--bg-one-clr);
   padding: 2px 10px;
   font-weight: bold;
+  width: fit-content;
 }
 
 .event__desc {
@@ -109,6 +110,13 @@
 
 .event__link:focus-visible {
   outline: 1px solid var(--bg-two-clr);
+}
+
+.event__infos_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 5px;
 }
 
 @media screen and (max-width: 700px) {
