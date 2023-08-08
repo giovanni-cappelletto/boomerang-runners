@@ -5,8 +5,10 @@ import toast, { Toaster } from "react-hot-toast";
 import Title from "../../components/Title.jsx";
 import Button from "../../components/Button.jsx";
 import Form from "../../components/Form.jsx";
+import InfoColumn from "../../components/InfoColumn.jsx";
+import Property from "../../components/Property.jsx";
+import checkChangedProperties from "../../utils/checkChangedProperties.jsx";
 import calculateTotalAttendees from "../../utils/calculateTotalAttendees.jsx";
-import editIcon from "../../assets/edit_icon.svg";
 import settingsStyles from "../../styles/settings.module.css";
 
 const ChangeSettings = ({
@@ -15,6 +17,12 @@ const ChangeSettings = ({
   setEventInfos,
   eventId,
 }) => {
+  useEffect(() => {
+    window.addEventListener("keydown", (e) => {
+      if (e.code === "Escape") setChangeSettings(false);
+    });
+  }, []);
+
   const handleChange = (e) => {
     const property = e.target.id;
     const value = e.target.value;
@@ -23,15 +31,9 @@ const ChangeSettings = ({
   };
 
   const handleClick = async () => {
-    const changedProperties = {};
-
-    for (const property of Object.entries(eventInfos).slice(1)) {
-      changedProperties[property[0]] = property[1];
-    }
-
     const { error } = await supabase
       .from("evento")
-      .update(changedProperties)
+      .update(checkChangedProperties(eventInfos))
       .eq("id", eventId);
 
     if (error) {
@@ -64,41 +66,6 @@ const ChangeSettings = ({
         />
       </div>
     </dialog>
-  );
-};
-
-const InfoColumn = ({ columnTitle, children }) => {
-  return (
-    <div className={settingsStyles.info__column}>
-      <h2 className={settingsStyles.info__title}>{columnTitle}</h2>
-      {children}
-    </div>
-  );
-};
-
-const Property = ({
-  property,
-  value,
-  icon,
-  changeSettings,
-  setChangeSettings,
-}) => {
-  return (
-    <div className={settingsStyles.info__container}>
-      <p className={settingsStyles.info__property}>
-        <span className={settingsStyles.bold}>{property}: </span> {value}
-      </p>
-      {icon && (
-        <img
-          src={editIcon}
-          alt="Edit Icon"
-          className={settingsStyles.edit_btn}
-          onClick={() => {
-            setChangeSettings(!changeSettings);
-          }}
-        />
-      )}
-    </div>
   );
 };
 

@@ -1,9 +1,11 @@
 # .tmp / issues
 
-- Modify || Delete participation
+- Ending in 00:00:00 + block subscription and editing infos
 
 # V1 - To Do
 
+- Refactoring: creating two Form components
+- Help page
 - 404 Page
 - Fixing description length in settings
 - Fixing event cards size
@@ -13,7 +15,6 @@
 
 # V2 - To Do
 
-- Adding Enter during add/change description
 - countdownDate calculator based on event date
 
 # Changing Auth0 Links

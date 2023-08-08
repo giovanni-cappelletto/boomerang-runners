@@ -17,7 +17,7 @@ const Subscription = () => {
   });
   const [attendees, setAttendees] = useState({});
   const [eventInfos, setEventInfos] = useState({});
-  const [isParticipating, setIsParticipating] = useState(false);
+  const [attendeeAlreadySigned, setAttendeeAlreadySigned] = useState({});
 
   useEffect(() => {
     fetchData("evento", "id", eventId, setEventInfos);
@@ -25,22 +25,28 @@ const Subscription = () => {
   }, []);
 
   const checkParticipation = () => {
-    let userIsParticipating = false;
+    let person = null;
 
-    for (const { email } of attendees) {
-      userIsParticipating = email === user.email ? true : false;
+    for (const attendee of attendees) {
+      if (attendee.email === user.email) {
+        person = attendee;
+      }
     }
 
-    // Avoiding too many re-renders
-    if (userIsParticipating === isParticipating) return;
-
-    setIsParticipating(userIsParticipating);
+    if (person) setAttendeeAlreadySigned(person);
   };
 
-  if (attendees.length) checkParticipation();
+  if (attendees.length && Object.values(attendeeAlreadySigned).length === 0) {
+    checkParticipation();
+  }
 
-  return isParticipating ? (
-    <Subscribed />
+  return Object.values(attendeeAlreadySigned).length ? (
+    <Subscribed
+      eventInfos={eventInfos}
+      attendee={attendeeAlreadySigned}
+      attendees={attendees}
+      eventId={eventId}
+    />
   ) : (
     <SubscriptionPage
       attendees={attendees}

@@ -71,10 +71,6 @@ const CreateEvent = () => {
     const property = e.target.id;
     const value = e.target.value;
 
-    if (property === "limiteiscrizione") {
-      console.log(e.target);
-    }
-
     setEventInfos({ ...eventInfos, [property]: value });
   };
 

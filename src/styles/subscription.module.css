@@ -11,6 +11,7 @@
 }
 
 .main__title {
+  color: var(--main-clr);
   font-size: clamp(2rem, 5vw, 3rem);
   margin-block: 7px;
 }

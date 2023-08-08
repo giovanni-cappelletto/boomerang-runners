@@ -35,7 +35,15 @@ const Event = ({
           <span className={EventStyles.event__date}>{eventDate}</span>
           <Countdown date={limitSubscriptionDate} />
         </div>
-        <p className={EventStyles.event__desc}>{desc}</p>
+        <p className={EventStyles.event__desc}>
+          {desc.split("").map((letter) => {
+            if (letter === "\n") {
+              return <br />;
+            }
+
+            return letter;
+          })}
+        </p>
 
         <div className={EventStyles.btn_container}>
           {user.sub === import.meta.env.VITE_ADMIN_SUB && !createEventView ? (
