@@ -10,8 +10,6 @@ import EventsImage1 from "./assets/documentationFiles/events/image1.png";
 import "./App.css";
 
 function App() {
-  console.log(EventsImage1);
-
   return (
     <Router>
       <Routes>

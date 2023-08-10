@@ -4,7 +4,7 @@
 
 Se non ci sono eventi disponibili, la sezione _all-events_ risulterà vuota:
 
-![Zero events {small}](/documentation/documentationFiles/events/image1.png)
+![Zero events {small}](/documentation/documentationFiles/events/image1)
 
 All'interno del sito, nella sezione _all-events_, trovi le schede di ogni evento. Ecco la legenda di un evento:
 
