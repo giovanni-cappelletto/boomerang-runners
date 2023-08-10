@@ -4,10 +4,11 @@ import "./markdown.css";
 const Markdown = ({ md }) => {
   return (
     <ReactMarkdown
-      transformImageUri={(uri) =>
-        uri.startsWith("http") ? uri : `${import.meta.env.VITE_BASE_URL}${uri}`
-      }
-      escapeHTML={false}
+      transformImageUri={(uri) => {
+        return uri.startsWith("http")
+          ? uri
+          : `${import.meta.env.VITE_BASE_URL}${uri}`;
+      }}
       components={{
         img({ src, alt }) {
           return (
