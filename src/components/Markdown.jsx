@@ -7,6 +7,7 @@ const Markdown = ({ md }) => {
       transformImageUri={(uri) =>
         uri.startsWith("http") ? uri : `${import.meta.env.VITE_BASE_URL}${uri}`
       }
+      escapeHTML={false}
       components={{
         img({ src, alt }) {
           return (
