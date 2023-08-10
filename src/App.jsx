@@ -6,6 +6,7 @@ import Settings from "./pages/admin/settings.jsx";
 import Subscription from "./pages/subscription/subscription.jsx";
 import Documentation from "./pages/documentation/documentation.jsx";
 import PageNotFound from "./pages/page-not-found";
+import EventsImage1 from "./assets/documentationFiles/events/image1.png";
 import EventsImage2 from "./assets/documentationFiles/events/image2.png";
 import EventsImage3 from "./assets/documentationFiles/events/image3.png";
 import EventsImage4 from "./assets/documentationFiles/subscription/image1.png";
@@ -42,6 +43,10 @@ function App() {
         <Route
           path="/documentation/event_settings"
           element={<Documentation />}
+        />
+        <Route
+          path="/documentation/documentationFiles/events/image11"
+          element={<img src={EventsImage1} />}
         />
         <Route
           path="/documentation/documentationFiles/events/image1"
