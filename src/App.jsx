@@ -6,9 +6,12 @@ import Settings from "./pages/admin/settings.jsx";
 import Subscription from "./pages/subscription/subscription.jsx";
 import Documentation from "./pages/documentation/documentation.jsx";
 import PageNotFound from "./pages/page-not-found";
+import EventsImage1 from "./assets/documentationFiles/events/image1.png";
 import "./App.css";
 
 function App() {
+  console.log(EventsImage1);
+
   return (
     <Router>
       <Routes>
@@ -32,6 +35,10 @@ function App() {
         <Route
           path="/documentation/event_settings"
           element={<Documentation />}
+        />
+        <Route
+          path="/documentation/documentationFiles/events/image1"
+          element={<img src={EventsImage1} />}
         />
         <Route path="*" element={<PageNotFound />} />
       </Routes>

@@ -11,6 +11,7 @@ const Markdown = ({ md }) => {
       }}
       components={{
         img({ src, alt }) {
+          console.log(src);
           return (
             <img
               src={src}
