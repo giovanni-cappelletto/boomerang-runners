@@ -13,6 +13,8 @@
 
 # V2 - To Do
 
+- limiting number of tickets
+- admin subscription to an event
 - countdownDate calculator based on event date
 
 # Changing Auth0 Links

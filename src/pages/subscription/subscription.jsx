@@ -42,9 +42,9 @@ const Subscription = () => {
 
   let deltaTime = null;
 
-  if (eventInfos.limiteiscrizione) {
+  if (eventInfos[0]?.limiteiscrizione) {
     deltaTime =
-      Date.parse(new Date(`${eventInfos.limiteiscrizione}, 12:00:00`)) -
+      Date.parse(new Date(`${eventInfos[0]?.limiteiscrizione}, 12:00:00`)) -
       Date.parse(new Date());
   }
 

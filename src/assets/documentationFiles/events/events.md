@@ -1,0 +1,15 @@
+# Documentazione
+
+## Eventi
+
+Se non ci sono eventi disponibili, la sezione _all-events_ risulterà vuota:
+
+![Zero events {small}](/src/assets/documentationFiles/events/image1.png)
+
+All'interno del sito, nella sezione _all-events_, trovi le schede di ogni evento. Ecco la legenda di un evento:
+
+![Event's card's components](/src/assets/documentationFiles/events/image2.png)
+
+Nel caso in cui fosse finito il tempo per iscriversi, il bottone iscrizione scomparirà. Inoltre, a meno che l'evento non sia definitivamente eliminato dagli amministratori, la scheda rimarrà e sarà, quindi, possibile consultare ancora i dettagli dell'evento:
+
+![Time expired {small}](/src/assets/documentationFiles/events/image3.png)

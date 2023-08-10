@@ -1,8 +1,11 @@
+import { useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
 import createEventStyles from "../styles/create-event.module.css";
 
 const Form = ({ fetchData, handleChange, renderCreateBtn }) => {
+  const [clicked, setClicked] = useState(false);
+
   return (
     <form className={createEventStyles.create__form}>
       <Input placeholder="Nome" property="nome" handleChange={handleChange} />
@@ -38,7 +41,11 @@ const Form = ({ fetchData, handleChange, renderCreateBtn }) => {
         <Button
           onClick={(e) => {
             e.preventDefault();
-            fetchData();
+
+            if (!clicked) {
+              setClicked(true);
+              fetchData();
+            }
           }}
           className={`${createEventStyles.submit_btn} light`}
           text="Crea"

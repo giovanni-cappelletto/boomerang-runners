@@ -1,0 +1,49 @@
+:root {
+  --main-text-clr: hsl(216, 18%, 16%);
+}
+
+.linkToPage {
+  color: var(--main-text-clr);
+  text-decoration: none;
+  outline: none;
+}
+
+.linkToPage:focus .box {
+  --offset: 2px;
+}
+
+.box {
+  --offset: 7px;
+
+  cursor: pointer;
+  width: 100%;
+  margin-block: 30px;
+  border: 1px solid var(--main-text-clr);
+  box-shadow: var(--offset) var(--offset) var(--main-text-clr);
+  transition: box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.box:hover {
+  --offset: 2px;
+}
+
+.box__content {
+  position: relative;
+  padding: 20px 30px;
+}
+
+.box__title {
+  line-height: 2;
+}
+
+.box__content:hover .arrow {
+  transform: translate(5px, -50%);
+}
+
+.arrow {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.25s linear;
+}

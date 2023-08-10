@@ -20,7 +20,16 @@ const Home = () => {
         </p>
       </div>
 
-      <LoginButton />
+      <div className={homeStyles.button_container}>
+        <LoginButton />
+        <a
+          href="/documentation/introduction"
+          target="_blank"
+          className={homeStyles.help}
+        >
+          Aiuto
+        </a>
+      </div>
     </main>
   );
 };

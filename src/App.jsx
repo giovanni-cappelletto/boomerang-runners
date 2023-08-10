@@ -4,6 +4,8 @@ import AllEvents from "./pages/all-events.jsx";
 import CreateEvent from "./pages/admin/create-event.jsx";
 import Settings from "./pages/admin/settings.jsx";
 import Subscription from "./pages/subscription/subscription.jsx";
+import Documentation from "./pages/documentation/documentation.jsx";
+import PageNotFound from "./pages/page-not-found";
 import "./App.css";
 
 function App() {
@@ -15,6 +17,23 @@ function App() {
         <Route path="/create-event" element={<CreateEvent />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/subscription" element={<Subscription />} />
+        <Route path="/documentation/introduction" element={<Documentation />} />
+        <Route path="/documentation/events" element={<Documentation />} />
+        <Route path="/documentation/subscription" element={<Documentation />} />
+        <Route
+          path="/documentation/user_settings"
+          element={<Documentation />}
+        />
+        <Route path="/documentation/errors" element={<Documentation />} />
+        <Route
+          path="/documentation/create_events"
+          element={<Documentation />}
+        />
+        <Route
+          path="/documentation/event_settings"
+          element={<Documentation />}
+        />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Router>
   );

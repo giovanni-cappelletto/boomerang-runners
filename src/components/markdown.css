@@ -1,0 +1,9 @@
+.markdown_image {
+  width: 100%;
+}
+
+.small {
+  width: 70%;
+  display: block;
+  margin: 20px auto;
+}

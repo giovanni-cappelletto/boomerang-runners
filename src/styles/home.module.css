@@ -44,3 +44,14 @@ body {
 .main__desc {
   font-style: italic;
 }
+
+.button_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.help {
+  color: var(--main-clr);
+}

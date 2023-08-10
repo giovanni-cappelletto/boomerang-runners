@@ -1,3 +1,4 @@
+import { useState } from "react";
 import supabase from "../../Supabase.js";
 import { Link } from "react-router-dom";
 import { Player } from "@lottiefiles/react-lottie-player";
@@ -15,6 +16,8 @@ const SubscriptionPage = ({
   setAttendeeInfos,
   eventInfos,
 }) => {
+  const [clicked, setClicked] = useState(false);
+
   const formatFields = (field) => {
     const formattedField = field
       .trim()
@@ -59,7 +62,8 @@ const SubscriptionPage = ({
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (attendeeInfos.nome && attendeeInfos.cognome) {
+    if (attendeeInfos.nome && attendeeInfos.cognome && !clicked) {
+      setClicked(true);
       pushData();
     }
   };
