@@ -10,8 +10,8 @@ Se ancora non dovesse funzionare aspetta qualche giorno e controlla se gli ammin
 
 Se tutto ciò non dovesse funzionare, segnati il momento in cui tale notifica è comparsa (durante l'iscrizione/la modifica dei dati/la cancellazione della prenotazione). Successivamente, finché ti trovi all'interno della stessa scheda del browser in cui è comparso l'errore, clicca il tasto _F12_ presente sulla tastiera e dirigiti nella _Console_. A questo punto dovresti vedere delle parole evidenziate di rosso. Copia queste parole e [contattami](mailto:giovicapp4@gmail.com), passandomi tutte queste informazioni.
 
-![Console](/src/assets/documentationFiles/errors/image1.png)
+![Console](/assets/image1-35ea3a98.png)
 
 Di seguito riporto un esempio grafico di errore:
 
-![Error {small}](/src/assets/documentationFiles/errors/image2.png)
+![Error {small}](/assets/image2-6b2f1a5b.png)

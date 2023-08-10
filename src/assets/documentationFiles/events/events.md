@@ -12,4 +12,4 @@ All'interno del sito, nella sezione _all-events_, trovi le schede di ogni evento
 
 Nel caso in cui fosse finito il tempo per iscriversi, il bottone iscrizione scomparirà. Inoltre, a meno che l'evento non sia definitivamente eliminato dagli amministratori, la scheda rimarrà e sarà, quindi, possibile consultare ancora i dettagli dell'evento:
 
-![Time expired {small}](/src/assets/documentationFiles/events/image3.png)
+![Time expired {small}](/assets/image3-4a41e538.png)
