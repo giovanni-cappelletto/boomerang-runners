@@ -9,20 +9,21 @@ import PageNotFound from "./pages/page-not-found";
 import EventsImage1 from "./assets/documentationFiles/events/image1.png";
 import EventsImage2 from "./assets/documentationFiles/events/image2.png";
 import EventsImage3 from "./assets/documentationFiles/events/image3.png";
-import EventsImage4 from "./assets/documentationFiles/subscription/image1.png";
-import EventsImage5 from "./assets/documentationFiles/user_settings/image1.png";
-import EventsImage6 from "./assets/documentationFiles/user_settings/image2.png";
-import EventsImage7 from "./assets/documentationFiles/errors/image1.png";
-import EventsImage8 from "./assets/documentationFiles/errors/image2.png";
-import EventsImage9 from "./assets/documentationFiles/create_events/image1.png";
-import EventsImage10 from "./assets/documentationFiles/event_settings/image1.png";
-import EventsImage11 from "./assets/documentationFiles/event_settings/image2.png";
+import SubscriptionImage1 from "./assets/documentationFiles/subscription/image1.png";
+import UserSettingsImage1 from "./assets/documentationFiles/user_settings/image1.png";
+import UserSettingsImage2 from "./assets/documentationFiles/user_settings/image2.png";
+import ErrorsImage1 from "./assets/documentationFiles/errors/image1.png";
+import ErrorsImage2 from "./assets/documentationFiles/errors/image2.png";
+import CreateEventsImage1 from "./assets/documentationFiles/create_events/image1.png";
+import EventSettingsImage1 from "./assets/documentationFiles/event_settings/image1.png";
+import EventSettingsImage2 from "./assets/documentationFiles/event_settings/image2.png";
 import "./App.css";
 
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Pages */}
         <Route exact path="/" element={<Home />} />
         <Route path="/all-events" element={<AllEvents />} />
         <Route path="/create-event" element={<CreateEvent />} />
@@ -44,49 +45,51 @@ function App() {
           path="/documentation/event_settings"
           element={<Documentation />}
         />
+
+        {/* Images Routes */}
         <Route
-          path="/documentation/documentationFiles/events/image11"
+          path="/documentation/documentationFiles/events/image1"
           element={<img src={EventsImage1} />}
         />
         <Route
-          path="/documentation/documentationFiles/events/image1"
+          path="/documentation/documentationFiles/events/image2"
           element={<img src={EventsImage2} />}
         />
         <Route
-          path="/documentation/documentationFiles/events/image2"
+          path="/documentation/documentationFiles/events/image3"
           element={<img src={EventsImage3} />}
         />
         <Route
-          path="/documentation/documentationFiles/events/image3"
-          element={<img src={EventsImage4} />}
+          path="/documentation/documentationFiles/subscription/image1"
+          element={<img src={SubscriptionImage1} />}
         />
         <Route
-          path="/documentation/documentationFiles/events/image4"
-          element={<img src={EventsImage5} />}
+          path="/documentation/documentationFiles/user_settings/image1"
+          element={<img src={UserSettingsImage1} />}
         />
         <Route
-          path="/documentation/documentationFiles/events/image5"
-          element={<img src={EventsImage6} />}
+          path="/documentation/documentationFiles/user_settings/image2"
+          element={<img src={UserSettingsImage2} />}
         />
         <Route
-          path="/documentation/documentationFiles/events/image6"
-          element={<img src={EventsImage7} />}
+          path="/documentation/documentationFiles/errors/image1"
+          element={<img src={ErrorsImage1} />}
         />
         <Route
-          path="/documentation/documentationFiles/events/image7"
-          element={<img src={EventsImage8} />}
+          path="/documentation/documentationFiles/errors/image2"
+          element={<img src={ErrorsImage2} />}
         />
         <Route
-          path="/documentation/documentationFiles/events/image8"
-          element={<img src={EventsImage9} />}
+          path="/documentation/documentationFiles/create_events/image1"
+          element={<img src={CreateEventsImage1} />}
         />
         <Route
-          path="/documentation/documentationFiles/events/image9"
-          element={<img src={EventsImage10} />}
+          path="/documentation/documentationFiles/event_settings/image1"
+          element={<img src={EventSettingsImage1} />}
         />
         <Route
-          path="/documentation/documentationFiles/events/image10"
-          element={<img src={EventsImage11} />}
+          path="/documentation/documentationFiles/event_settings/image2"
+          element={<img src={EventSettingsImage2} />}
         />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
