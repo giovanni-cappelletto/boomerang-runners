@@ -1,0 +1,68 @@
+.main {
+  background-image: url("../assets/pageNotFoundBg.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main__content {
+  position: absolute;
+  top: 20%;
+  right: 20%;
+}
+
+.main__title {
+  --font-size: 6rem;
+
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size);
+  position: relative;
+  line-height: 1;
+}
+
+.animation {
+  display: grid;
+  place-items: center;
+  width: calc(var(--font-size) - 15px);
+  border: calc(var(--font-size) / 10) solid black;
+  border-radius: 100%;
+}
+
+.desc {
+  margin-block-end: 20px;
+}
+
+@media screen and (max-width: 750px) {
+  .main__content {
+    text-align: center;
+    padding-inline: 30px;
+    left: 0;
+    width: 100%;
+  }
+
+  .main__title {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main__title {
+    --font-size: 4rem;
+    margin-block-end: 10px;
+  }
+
+  .desc {
+    margin-block-end: 30px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .main__title {
+    --font-size: 3rem;
+    margin-block-end: 10px;
+  }
+}
