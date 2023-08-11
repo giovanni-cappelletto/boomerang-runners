@@ -52,7 +52,9 @@ const Event = ({
 
         <div className={EventStyles.btn_container}>
           {/* Check if the component is being rendered from 'create-events' */}
-          {(user.sub === import.meta.env.VITE_ADMIN_SUB || user.sub === import.meta.env.VITE_DEV_SUB) && !createEventView ? (
+          {(user.sub === import.meta.env.VITE_ADMIN_SUB ||
+            user.sub === import.meta.env.VITE_DEV_SUB) &&
+          !createEventView ? (
             <Link to={`/settings?event=${eventId}`}>
               <Button className="light settings-btn">
                 <img src={settingsIcon} alt="Settings button" />

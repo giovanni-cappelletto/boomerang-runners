@@ -35,7 +35,8 @@ const Authenticated = ({ user, eventsArray }) => {
 
       <LogoutButton />
 
-      {user.sub === import.meta.env.VITE_ADMIN_SUB && (
+      {(user.sub === import.meta.env.VITE_ADMIN_SUB ||
+        user.sub === import.meta.env.VITE_DEV_SUB) && (
         <Link to="/create-event">
           <Button text="Crea un evento" className="fixed right light" />
         </Link>
