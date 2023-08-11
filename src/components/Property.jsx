@@ -11,7 +11,8 @@ const Property = ({
   return (
     <div className={settingsStyles.info__container}>
       <p className={settingsStyles.info__property}>
-        <span className={settingsStyles.bold}>{property}: </span> {value}
+        <span className={settingsStyles.bold}>{property}: </span>
+        {value}
       </p>
       {icon && (
         <img

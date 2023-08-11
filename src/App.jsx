@@ -46,7 +46,7 @@ function App() {
           element={<Documentation />}
         />
 
-        {/* Images Routes */}
+        {/* Images' Routes for vercel */}
         <Route
           path="/documentation/documentationFiles/events/image1"
           element={<img src={EventsImage1} />}

@@ -19,6 +19,8 @@ const SubscriptionPage = ({
   const [clicked, setClicked] = useState(false);
 
   const formatFields = (field) => {
+    // Removes spaces, numbers, special characters and returns a name with the first letter uppercase
+    // Maybe you could do it with just using replace() string method
     const formattedField = field
       .trim()
       .split("")

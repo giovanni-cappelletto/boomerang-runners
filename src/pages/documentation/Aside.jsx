@@ -1,7 +1,7 @@
 import ArrowIcon from "../../assets/arrow_icon.svg";
 import asideStyles from "../../styles/aside.module.css";
 
-const PageLink = ({ link, fileName, name }) => {
+const PageLink = ({ link, name }) => {
   return (
     <a
       href={`/documentation/${link}`}
@@ -19,10 +19,8 @@ const Chapter = ({ chapterName, chapters }) => {
   return (
     <div className={asideStyles.chapter_container}>
       <h3 className={asideStyles.chapter__title}>{chapterName}</h3>
-      {chapters.map(({ link, fileName, name, key }) => {
-        return (
-          <PageLink link={link} fileName={fileName} name={name} key={key} />
-        );
+      {chapters.map(({ link, name, key }) => {
+        return <PageLink link={link} name={name} key={key} />;
       })}
     </div>
   );

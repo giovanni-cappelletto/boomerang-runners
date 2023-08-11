@@ -94,6 +94,7 @@ const Documentation = () => {
     },
   ];
 
+  // It finds the text that needs to be displayed in BoxNextPage.jsx
   const findNextPage = (array) => {
     if (fileName === "introduction") return;
 

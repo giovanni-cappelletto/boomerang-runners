@@ -41,6 +41,7 @@ const CreateEvent = () => {
   });
   const [buttonTheme, setButtonTheme] = useState("dark");
 
+  // Sort of intersectionObserver
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
   });
@@ -70,6 +71,14 @@ const CreateEvent = () => {
   const handleChange = (e) => {
     const property = e.target.id;
     const value = e.target.value;
+
+    if (property === "link") {
+      if (!value.startsWith("https://")) {
+        const link = `https://${value}`;
+        setEventInfos({ ...eventInfos, [property]: link });
+        return;
+      }
+    }
 
     setEventInfos({ ...eventInfos, [property]: value });
   };

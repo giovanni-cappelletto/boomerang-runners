@@ -8,6 +8,8 @@ const Countdown = ({ date }) => {
     minutes: 0,
     seconds: 0,
   });
+
+  // It will reference the intervalID which will be used to delete previous intervals
   const intervalRef = useRef(0);
 
   useEffect(() => {
@@ -22,6 +24,8 @@ const Countdown = ({ date }) => {
 
   let countdownDate = null;
 
+  // Check if the new date input is equal to the previous one
+  // in order to know if it has to clear the last interval
   if (countdownDate !== Date.parse(new Date(`${date}`))) {
     clearInterval(intervalRef.current);
   }

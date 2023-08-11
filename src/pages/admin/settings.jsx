@@ -27,6 +27,14 @@ const ChangeSettings = ({
     const property = e.target.id;
     const value = e.target.value;
 
+    if (property === "link") {
+      if (!value.startsWith("https://")) {
+        const link = `https://${value}`;
+        setEventInfos({ ...eventInfos, [property]: link });
+        return;
+      }
+    }
+
     setEventInfos({ ...eventInfos, [property]: value });
   };
 
@@ -88,6 +96,7 @@ const Settings = () => {
       .eq("idevento", eventId)
       .csv();
 
+    // JavaScript logic for handling the download of a generated csv file
     const url = window.URL.createObjectURL(new Blob([data]));
     const link = document.createElement("a");
     link.href = url;

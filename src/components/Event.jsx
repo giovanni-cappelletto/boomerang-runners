@@ -40,6 +40,7 @@ const Event = ({
           <Countdown date={limitSubscriptionDate} />
         </div>
         <p className={EventStyles.event__desc}>
+          {/* Check if the user has clicked Enter while writing event's description */}
           {desc.split("").map((letter, index) => {
             if (letter === "\n") {
               return <br key={`${eventId}-${index}`} />;
@@ -50,6 +51,7 @@ const Event = ({
         </p>
 
         <div className={EventStyles.btn_container}>
+          {/* Check if the component is being rendered from 'create-events' */}
           {user.sub === import.meta.env.VITE_ADMIN_SUB && !createEventView ? (
             <Link to={`/settings?event=${eventId}`}>
               <Button className="light settings-btn">
