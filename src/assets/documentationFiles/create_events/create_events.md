@@ -10,4 +10,4 @@ Quando sei sicuro di aver inserito tutte le informazioni, clicca il bottone _Cre
 
 Se, invece, qualcosa dovesse andare storto consulta la sezione [Errori](/documentation/errors)
 
-![Create event](/assets/image1-49f49f79.png)
+![Create event](/assets/image1-2a01a315.png)
