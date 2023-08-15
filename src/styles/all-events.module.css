@@ -91,13 +91,33 @@
 .event__desc {
   text-align: justify;
   hyphens: auto;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
-  overflow: hidden;
+  overflow-y: scroll;
   margin-block-start: 20px;
   height: 150px;
   line-height: 1.6;
+  position: relative;
+  cursor: pointer;
+  padding-inline-end: 10px;
+}
+
+.event__desc::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+.event__desc::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+/* Handle */
+.event__desc::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+.event__desc::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-shadow);
 }
 
 .btn_container {
@@ -120,6 +140,12 @@
   flex-direction: column;
   justify-content: start;
   gap: 5px;
+}
+
+.copy_link {
+  text-decoration: underline;
+  user-select: none;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1185px) {

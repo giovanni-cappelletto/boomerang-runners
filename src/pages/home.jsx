@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <main className={homeStyles.main}>
       <h1 className={homeStyles.main__title}>
-        <Title text="Mens sana in corpore sano" />
+        <Title text="Mens insana in corpore sano" />
       </h1>
 
       <div className={homeStyles.main__content}>

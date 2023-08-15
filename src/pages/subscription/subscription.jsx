@@ -1,18 +1,29 @@
 import { useState, useEffect } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import { fetchData } from "../../Supabase.js";
+import BlankPage from "../../components/BlankPage.jsx";
 import SubscriptionPage from "./SubscriptionPage.jsx";
 import Subscribed from "./Subscribed.jsx";
+
+const AuthenticationGuard = ({ component, link }) => {
+  const Component = withAuthenticationRequired(component, {
+    onRedirecting: () => {
+      return <BlankPage />;
+    },
+    returnTo: link,
+  });
+
+  return <Component />;
+};
 
 const Subscription = () => {
   const { user } = useAuth0();
   const eventId = Number(window.location.search.slice(7));
-
   const [attendeeInfos, setAttendeeInfos] = useState({
     nome: "",
     cognome: "",
     idevento: eventId,
-    email: user.email,
+    email: "",
     numerobiglietti: 1,
   });
   const [attendees, setAttendees] = useState({});
@@ -22,7 +33,17 @@ const Subscription = () => {
   useEffect(() => {
     fetchData("evento", "id", eventId, setEventInfos);
     fetchData("partecipante", "idevento", eventId, setAttendees);
+
+    if (user) setAttendeeInfos({ ...attendeeInfos, email: user.email });
   }, []);
+
+  if (!user)
+    return (
+      <AuthenticationGuard
+        component={<h1>hey</h1>}
+        link={`/subscription?event=${eventId}`}
+      />
+    );
 
   const checkParticipation = () => {
     let person = null;
@@ -48,7 +69,9 @@ const Subscription = () => {
       Date.parse(new Date());
   }
 
-  return deltaTime > 0 && Object.values(attendeeAlreadySigned).length ? (
+  return deltaTime > 0 &&
+    Object.values(attendeeAlreadySigned).length &&
+    attendeeInfos.email ? (
     <Subscribed
       eventInfos={eventInfos}
       attendee={attendeeAlreadySigned}

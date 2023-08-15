@@ -1,12 +1,3 @@
-# V2 - To Do
+# Boomerang Runners Events
 
-- limiting number of tickets (?)
-- admin subscription to an event (?)
-- countdownDate calculator based on event date (?)
-
-# Changing Auth0 Links
-
-- Inside `.env`
-- In Auth0 site
-
-- At the end, change to production in Auth0
+Questa è la repository del sito dove vengono caricati tutti gli eventi di Boomerang Runners

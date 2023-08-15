@@ -70,7 +70,7 @@ const CreateEvent = () => {
 
   const handleChange = (e) => {
     const property = e.target.id;
-    const value = e.target.value;
+    const value = e.target.value.trim();
 
     if (property === "link") {
       if (!value.startsWith("https://")) {

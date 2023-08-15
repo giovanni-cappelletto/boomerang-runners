@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import toast, { Toaster } from "react-hot-toast";
 import eventBg from "../assets/event__bg.png";
 import settingsIcon from "../assets/settings_icon.svg";
 import Title from "../components/Title";
@@ -17,6 +18,13 @@ const Event = ({
   createEventView,
 }) => {
   const { user } = useAuth0();
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(
+      `https://boomerang-runners.vercel.app/subscription?event=${eventId}`
+    );
+    toast.success("Link copiato!");
+  };
 
   const deltaTime =
     Date.parse(new Date(`${limitSubscriptionDate}, 12:00:00`)) -
@@ -55,11 +63,17 @@ const Event = ({
           {(user.sub === import.meta.env.VITE_ADMIN_SUB ||
             user.sub === import.meta.env.VITE_DEV_SUB) &&
           !createEventView ? (
-            <Link to={`/settings?event=${eventId}`}>
-              <Button className="light settings-btn">
-                <img src={settingsIcon} alt="Settings button" />
-              </Button>
-            </Link>
+            <>
+              <Link to={`/settings?event=${eventId}`}>
+                <Button className="light settings-btn">
+                  <img src={settingsIcon} alt="Settings button" />
+                </Button>
+              </Link>
+
+              <p onClick={handleCopyLink} className={EventStyles.copy_link}>
+                Link per iscriversi
+              </p>
+            </>
           ) : (
             <>
               {deltaTime > 0 && (
@@ -73,12 +87,13 @@ const Event = ({
                 rel="noreferrer"
                 className={EventStyles.event__link}
               >
-                Maggiori info
+                Google Maps
               </a>
             </>
           )}
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };
