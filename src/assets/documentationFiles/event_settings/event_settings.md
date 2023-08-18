@@ -4,7 +4,7 @@
 
 Hai sbagliato ad inserire qualche informazione durante la creazione di un evento oppure desideri vedere quante persone partecipano ad un evento?? Qui scoprirai come fare!
 
-Innanzitutto, vai nella sezione _all-events_ e trova la scheda dell'evento che ti interessa. A questo punto clicca l'icona delle impostazioni:
+Innanzitutto, vai nella sezione _all-events_ e trova la scheda dell'evento che ti interessa. A questo punto clicca sull'icona delle impostazioni:
 
 ![Settings Icon {small}](/assets/image1-61d77669.png)
 
