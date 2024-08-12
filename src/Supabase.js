@@ -6,7 +6,13 @@ const supabase = createClient(
 );
 
 const fetchData = async (table, column, value, setState) => {
-  const { data } = await supabase.from(table).select("*").eq(column, value);
+  if (column !== "" && value !== "") {
+    const { data } = await supabase.from(table).select("*").eq(column, value);
+    setState(data);
+    return;
+  }
+
+  const { data } = await supabase.from(table).select("*");
   setState(data);
 };
 
